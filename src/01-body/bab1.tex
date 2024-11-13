@@ -1,0 +1,151 @@
+%-----------------------------------------------------------------------------%
+\chapter{\babSatu}
+\label{bab:1}
+%-----------------------------------------------------------------------------%
+Bab ini berisi tentang pendahuluan yang terdiri dari latar belakang, rumusan masalah, batasan masalah, tujuan, metodologi, serta sistematika penulisan dari penelitian \cite{book:sample}.
+
+Latar Belakang
+
+Pada era digital saat ini, Game analytics telah menjadi elemen krusial dalam pengembangan game. Game analytics merupakan proses pengumpulan, analisis, dan interpretasi data dari permainan yang bertujuan untuk meningkatkan pengalaman pengguna dan efektivitas bisnis. Pengembangan game tidak lagi hanya bergantung pada intuisi dan pengalaman pengembang, tetapi juga pada data yang dikumpulkan dari interaksi pengguna dengan game tersebut. Penggunaan game analytics memungkinkan pengembang untuk memahami perilaku pemain, mengidentifikasi masalah desain, dan mengevaluasi kinerja game secara menyeluruh. Hal ini tidak hanya meningkatkan kualitas game tetapi juga mendukung keputusan bisnis yang lebih baik melalui wawasan berbasis data \cite{book:sample}​.
+
+Layanan berbasis cloud memiliki beberapa kekurangan signifikan, terutama dalam hal ketergantungan pada server cloud yang harus selalu aktif agar layanan dapat digunakan. Sebagai contoh, layanan game analytics yang dikembangkan oleh Sakti (2018) tidak dapat diakses oleh pengguna kecuali layanan cloud-nya diaktifkan kembali. Hal ini dapat menghambat pengembang game yang bergantung pada layanan tersebut [2]. Sementara layanan berbasis on-premises dapat diaktifkan dan digunakan oleh pengguna secara langsung. Membuat pengguna bisa memiliki kontrol penuh terhadap layanan yang digunakan [3].
+
+Masalah signifikan lainnya dari layanan berbasis cloud adalah biaya. Layanan analytics ini biasanya berbayar dan cenderung mahal. Contohnya biaya layanan GameAnalytics Pro seharga USD 299/ bulan [4]. Biaya ini dapat menjadi penghalang bagi pengembang kecil atau perusahaan dengan anggaran terbatas, yang mungkin tidak mampu membayar layanan premium. Dampaknya, pengembang kecil dapat kesulitan untuk bersaing dengan perusahaan yang lebih besar yang memiliki sumber daya lebih besar.
+
+Karena layanan game analytics yang ada saat ini selalu berbasis cloud, pengembang tidak dapat mengetahui data-data yang diolah oleh layanan game analytics. Kurangnya transparansi ini dapat menyebabkan masalah kepercayaan dan kesulitan dalam memecahkan masalah. Sebagai alternatif, layanan yang bersifat open source memberikan akses penuh kepada pengguna terhadap source code, sehingga mempermudah dalam hal debugging, peningkatan, dan penyesuaian fitur sesuai kebutuhan​ [5]. Selain itu, karena tidak ada biaya lisensi yang harus dibayar, solusi open source sering kali lebih ekonomis dalam jangka panjang, terutama bagi perusahaan kecil dan menengah yang memiliki anggaran terbatas.
+
+Rumusan Masalah
+
+Proyek akhir ini berfokus pada pengembangan on-premises analytics game service yang bersifat open source. Berdasarkan latar belakang masalah yang telah dijelaskan, maka rumusan masalah dalam penelitian ini adalah sebagai berikut:
+
+Bagaimana merancang dan membangun kerangka arsitektur backend yang dapat diimplementasikan secara on-premises untuk pembuatan game service?
+
+Bagaimana membangun kerangka arsitektur client SDK untuk game service yang efisien dan mudah diintegrasikan ke backend menggunakan Unity plugin?
+
+Bagaimana cara merancang dan mengimplementasikan fitur analytics berupa A/B Testing, D/MAU (Daily/Monthly Active User) tracker, UA (User Acquisition) tracker, Custom Event tracker, dan User Playtime Session tracker yang terintegrasi penuh dengan game service secara client dan backend?
+
+Bagaimana membuat struktur dokumentasi praktis dan dokumentasi pengguna akhir untuk membantu pengembang dan pengguna memahami layanan yang dikembangkan?
+
+Batasan Masalah
+
+Pada proyek akhir ini, terdapat beberapa batasan masalah yang ditetapkan untuk memperjelas ruang lingkup dan fokus dari penelitian yang dilakukan. Batasan masalah tersebut adalah sebagai berikut:
+
+Proyek ini tidak mencakup pembuatan atau pengembangan model bisnis untuk produk yang dikembangkan. Fokus utama adalah pada aspek teknis dan implementasi layanan.
+
+Proyek ini menyediakan backend game service dengan fitur analytics. Dan frontend yang terbagi menjadi 2, yakni:
+
+Client SDK berbasis Unity plugin.
+
+Client Dashboard berbasis web.
+
+Semua komponen ini bersifat open source dan diimplementasikan secara on-premises
+
+Proyek ini mencakup pembuatan dokumentasi praktis yang ditujukan untuk pengembang, serta dokumentasi pengguna akhir yang membantu pengguna memahami dan menggunakan layanan yang dikembangkan.
+
+Tujuan dan Manfaat
+
+Bagian ini menjelaskan tujuan yang ingin dicapai dan manfaat yang diharapkan dari pelaksanaan proyek akhir ini. Tujuan merupakan hasil yang ingin dicapai melalui proses penelitian dan pengembangan yang dilakukan, sementara manfaat mencakup kontribusi penelitian ini baik dari sisi teoritis maupun praktis.
+
+Tujuan
+
+Proyek akhir ini memiliki beberapa tujuan yang ingin dicapai, yaitu:
+
+Mengembangkan fitur analytics yang dapat diintegrasikan sepenuhnya pada game service berbasis open source dan on-premises.
+
+Mengatasi masalah yang dihadapi oleh game service saat ini seperti kurangnya kontrol, transparansi, dan keterbatasan kustomisasi dengan menyediakan solusi yang lebih fleksibel dan memungkinkan pengguna untuk memiliki kendali langsung atas data mereka.
+
+Berkontribusi pada kebutuhan analisis pasar dalam industri game dengan menyediakan data analytics yang komprehensif dan dapat diakses oleh pengembang game dan publik.
+
+Manfaat
+
+Penelitian ini diharapkan dapat memberikan beberapa manfaat, baik secara teoritis maupun praktis, sebagai berikut:
+
+Manfaat Teoritis
+
+Menambah wawasan dan pengetahuan dalam bidang game analytics dan pengembangan game serivice yang bersifat open source dan on-premises.
+
+Mengembangkan model pengelolaan data yang dapat diintegrasikan dengan game service sehingga dapat dijadikan referensi bagi penelitian selanjutnya.
+
+Manfaat Praktis
+
+Meningkatkan kualitas game service dengan menyediakan fitur analytics yang lebih terjangkau dan dapat disesuaikan sesuai kebutuhan pengguna.
+
+Menghemat biaya pengelolaan data dan sumber daya melalui penerapan solusi open source dan on-premises yang lebih efisien.
+
+Memberikan transparansi yang lebih baik dan kontrol langsung atas data bagi pengguna, sehingga mereka dapat menyesuaikan layanan sesuai dengan kebutuhan spesifik mereka.
+
+Membantu pengembang game dalam melakukan analisis pasar dengan menyediakan data analytics yang dapat digunakan untuk mengidentifikasi tren dan kebutuhan pasar.
+
+Metodologi Penelitian
+
+Proyek akhir ini menggunakan pendekatan penelitian yang terstruktur untuk mencapai tujuan yang telah ditetapkan. Metodologi penelitian yang diterapkan mencakup beberapa tahapan sebagai berikut:
+
+Gambar 1.1 menunjukkan alur metodologi dari pengerjaan proyek akhir ini. Selanjutnya akan dibahas dari setiap alur yang telah disebutkan.
+
+Studi Literatur
+
+Pada studi leteratur dilakukan pencarian materi dan referensi penunjang terkait topik proyek akhir yang diangkat. Referensi didapat dari buku, thesis, jurnal, penelitian serupa, dan penelitian terdahulu. Studi literatur bertujuan untuk mencari data dan menganalisa penelitian yang telah dikumpulkan sehingga dapat digunakan dalam penelitian.
+
+Perancangan Sistem
+
+Pada tahap ini, dilakukan berbagai kegiatan yang berfokus pada identifikasi masalah dan persiapan teknis yang diperlukan untuk pengembangan sistem. Perancangan sistem bertujuan untuk menciptakan sebuah blueprint atau peta jalan yang jelas mengenai bagaimana sistem akan dikembangkan, diintegrasikan, dan diujicobakan. Berikut adalah rincian dari setiap langkah dalam tahap perancangan sistem:
+
+Identifikasi Masalah
+
+Pada identifikasi masalah, yaitu melakukan penelusuran masalah dari literatur yang bersumber dari buku, jurnal, maupun penelitian. Tahap ini bertujuan untuk menentukan masalah dan topik yang akan dibahas dalam proyek akhir.
+
+Persiapan Teknis
+
+Pada tahap ini, dilakukan persiapan teknis yang meliputi pemilihan perangkat lunak, framework, dan perangkat keras yang akan digunakan dalam pengembangan sistem. Ini termasuk pemilihan teknologi yang digunakan untuk pengerjaan proyek akhir.
+
+Pengembangan Sistem
+
+Tahap pengembangan sistem merupakan inti dari proyek akhir ini. Pada tahap ini, semua hasil analisis dan perancangan yang telah dilakukan sebelumnya diimplementasikan menjadi sebuah sistem yang nyata. Pengembangan sistem mencakup beberapa langkah penting yang harus dilaksanakan secara berurutan dan terstruktur. Berikut adalah penjelasan dari setiap langkah dalam pengembangan sistem:
+
+Perancangan Arsitektur dan Desain
+
+Pada tahap ini, dilakukan perancangan arsitektur sistem dan desain antarmuka pengguna. Arsitektur sistem mencakup desain backend, frontend dan bagaimana keduanya berinteraksi.
+
+Implementasi
+
+Implementasi sistem dilakukan dengan menggunakan teknologi yang telah dipilih. Backend dan frontend akan dikembangkan berdasarkan arsitektur yang telah dirancang. Tahap ini mencakup pengkodean, pengujian unit, dan dokumentasi kode.
+
+Integrasi
+
+Tahap ini melibatkan integrasi antara berbagai komponen sistem, termasuk integrasi antara frontend dan backend, serta integrasi dengan database atau layanan penyimpanan data lainnya.
+
+Pengujian Lokal
+
+Pengujian dilakukan pada tahap ini untuk memastikan bahwa setiap komponen sistem berfungsi dengan baik sebelum diimplementasikan secara keseluruhan. Pengujian lokal mencakup pengujian unit, pengujian integrasi, dan pengujian fungsionalitas.
+
+Dokumentasi Pengembangan
+
+Dokumentasi pengembangan mencakup penulisan dokumentasi teknis dan dokumentasi pengguna akhir. Dokumentasi teknis ditujukan untuk pengembang dan mencakup detail implementasi, sedangkan dokumentasi pengguna akhir membantu pengguna memahami dan menggunakan sistem.
+
+Pengujian dan Analisa Hasil
+
+Setelah pengembangan sistem selesai, dilakukan pengujian dan analisa hasil untuk memastikan sistem berfungsi sesuai dengan spesifikasi yang telah ditentukan. Pengujian dilakukan pada game yang telah dibuat oleh game studio. Pengujian dinyatakan berhasil apabila plugin dapat diimplementasikan pada game dan dapat melakukan komunikasi ke backend game service. Selain itu, pengujian juga dianggap berhasil apabila data yang direkam melalui game dapat disimpan pada database backend dan disajikan dalam bentuk informasi yang berguna di client dashboard.
+
+Penyusunan Laporan
+
+Tahap ini merupakan tahap dokumentasi dari semua tahapan proses di atas. Dokumentasi tersebut disusun dalam bentuk laporan yang berisi tentang dasar teori, metode yang digunakan, serta hasil yang diperoleh selama pengerjaan proyek akhir.
+
+Sistematika Penulisan
+
+Proposal proyek akhir ini disusun dalam empat bab yang terstruktur untuk memberikan gambaran yang jelas dan komprehensif mengenai penelitian yang dilakukan. Sistematika penulisan dalam proposal proyek akhir ini adalah sebagai berikut:
+
+BAB I: PENDAHULUAN
+
+Bab ini berisi latar belakang masalah, rumusan masalah, tujuan penelitian, batasan masalah, dan manfaat penelitian. Pada bab ini, dijelaskan alasan mengapa penelitian ini penting dilakukan dan apa yang ingin dicapai melalui penelitian ini.
+
+BAB II TINJAUAN PUSTAKA
+
+Bab ini berisi kajian teori dan literatur yang relevan dengan penelitian yang dilakukan. Pada bab ini, dijelaskan teori-teori yang mendasari penelitian serta hasil-hasil penelitian terdahulu yang berkaitan dengan topik yang diteliti.
+
+BAB III: PENGEMBANGAN SISTEM
+
+Bab ini menjelaskan tahapan-tahapan dalam pengembangan sistem yang dilakukan, termasuk metodologi penelitian, desain sistem, implementasi, dan pengujian.
+
+BAB IV: LINIMASA PENELITIAN
+
+Bab ini berisi linimasa atau jadwal penelitian yang menggambarkan tahapan-tahapan penelitian yang telah dilakukan beserta waktu pelaksanaannya.

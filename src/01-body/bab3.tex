@@ -1,0 +1,235 @@
+%-----------------------------------------------------------------------------%
+\chapter{\babTiga}
+\label{bab:3}
+%-----------------------------------------------------------------------------%
+Analisis Kebutuhan
+
+Analisis kebutuhan ini bertujuan untuk mengidentifikasi dan mendefinisikan kebutuhan yang harus dipenuhi oleh sistem yang dikembangkan dalam proyek akhir ini. Berdasarkan analisis terhadap penelitian-penelitian sebelumnya, ditemukan beberapa kekurangan yang harus diatasi dalam pengembangan layanan game analytics berbasis on-premises dan bersifat open source.
+
+Kebutuhan Fungsional
+
+Kebutuhan fungsional merujuk pada fitur dan fungsi yang harus disediakan oleh sistem agar dapat memenuhi tujuan dan kebutuhan pengguna.
+
+Layanan Analytics On-Premises
+
+Sistem harus menyediakan layanan analytics yang dapat diinstal dan dijalankan secara lokal (on-premises) di server pengguna. Hal ini mengatasi masalah keberlanjutan layanan berbasis cloud yang dapat mati atau tidak dapat diakses lagi.
+
+Fleksibilitas Integrasi
+
+Sistem harus memungkinkan integrasi dengan berbagai game tanpa memerlukan pengembangan alat tambahan yang kompleks atau pemasangan perangkat keras khusus pada device pemain.
+
+Open Source
+
+Sistem harus bersifat open source, memungkinkan pengguna untuk memodifikasi dan menyesuaikan layanan sesuai kebutuhan spesifik mereka. Ini memberikan fleksibilitas dan transparansi yang lebih besar, mengatasi masalah kontrol dan transparansi yang ditemukan dalam layanan analytics berbayar.
+
+Kebutuhan non-Fungsional
+
+Kebutuhan non-fungsional merujuk pada atribut dan karakteristik sistem yang tidak terkait langsung dengan fungsionalitas tetapi penting untuk performa dan pengalaman pengguna.
+
+Kemudahan Instalasi dan Konfigurasi
+
+Sistem harus mudah diinstal dan dikonfigurasi oleh pengguna, tanpa memerlukan pengetahuan teknis yang mendalam. Ini penting untuk meningkatkan adopsi sistem oleh pengembang game indie dan kecil.
+
+Dukungan dan Dokumentasi
+
+Sistem harus menyediakan dokumentasi yang lengkap dan jelas. Ini membantu pengguna dalam memecahkan masalah dan mengoptimalkan penggunaan sistem.
+
+Dengan memenuhi kebutuhan fungsional dan non-fungsional ini, sistem yang dikembangkan diharapkan dapat memberikan solusi analytics yang handal, fleksibel, dan dapat diakses oleh berbagai pengembang game.
+
+Perancangan Sistem
+
+Bagian ini menjelaskan perancangan sistem yang dikembangkan dalam proyek akhir ini. Sistem dirancang untuk menyediakan layanan game analytics berbasis open source on-premises yang mudah diakses dan diintegrasikan oleh pengembang game. Gambar 3.1 menunjukkan diagram sistem yang diusulkan.
+
+Gambar 3.1. Diagram Sistem
+
+Komponen Sistem
+
+Sistem ini terdiri dari beberapa komponen utama, yaitu:
+
+Database
+
+Berfungsi sebagai tempat penyimpanan data. Database ini dapat di-query untuk mendapatkan data yang dibutuhkan.
+
+Backend Game Service
+
+Backend Game Service adalah inti dari sistem ini. Layanan ini bertanggung jawab untuk menerima dan memproses data yang dikirim dari game melalui Unity SDK. Backend juga menyediakan fitur analitik yang memungkinkan pengembang untuk melakukan query dan mendapatkan data yang relevan dari database.
+
+Analytics Feature
+
+Merupakan bagian dari Backend Game Service yang menyediakan berbagai fungsi analytics. Data yang diproses oleh fitur analytics ini kemudian dapat disajikan melalui Frontend Dashboard.
+
+Unity SDK
+
+Unity SDK adalah kit pengembangan perangkat lunak yang disediakan untuk pengembang game yang menggunakan Unity. SDK ini memungkinkan game untuk berkomunikasi dengan Backend Game Service, mengirimkan data gameplay, dan menerima respon dari server.
+
+Frontend Dashboard
+
+Frontend Dashboard adalah antarmuka pengguna yang memungkinkan pengembang game untuk melihat dan menganalisis data yang dikumpulkan. Dashboard ini menyediakan berbagai visualisasi data dan alat analitik yang membantu pengembang memahami perilaku pemain dan mengoptimalkan desain game mereka.
+
+Client
+
+Client adalah perangkat yang digunakan oleh pemain untuk berinteraksi dengan game. Client mengirimkan input pengguna ke game dan menerima render dari gameplay. Data dari interaksi ini kemudian dikirim ke Backend Game Service untuk dianalisis.
+
+Alur Proses
+
+Sistem ini memiliki beberapa proses, yakni sebagai berikut:
+
+Data Collection
+
+Saat pemain berinteraksi dengan game, data gameplay dan input pengguna dikumpulkan oleh Unity SDK dan dikirim ke Backend Game Service.
+
+Data Processing
+
+Backend Game Service menerima data dari game dan menyimpannya dalam database. Data ini kemudian diproses oleh Analytics Feature untuk menghasilkan metrik analitik yang relevan.
+
+Data Query and Response
+
+Pengembang game dapat melakukan query ke database melalui Frontend Dashboard untuk mendapatkan data yang mereka butuhkan. Backend Game Service memproses query ini dan mengirimkan data yang diminta ke Frontend Dashboard.
+
+Data Visualization
+
+Frontend Dashboard menampilkan data yang telah diproses dalam bentuk visualisasi yang mudah dipahami. Pengembang game dapat menggunakan informasi ini untuk membuat keputusan yang lebih baik mengenai desain dan pengembangan game mereka.
+
+Client Interaction
+
+Selama permainan, client terus berinteraksi dengan game, mengirimkan input pengguna dan menerima render gameplay. Data dari interaksi ini terus dikirim ke Backend Game Service untuk dianalisis secara real-time.
+
+Pengembangan Sistem
+
+Bagian ini menjelaskan tahapan-tahapan dalam pengembangan sistem, mulai dari perancangan kerangka arsitektur hingga integrasi dan pengembangan fitur.
+
+Pengembangan Kerangka Arsitektur Backend Game Service
+
+Pengembangan kerangka arsitektur Backend Game Service melibatkan perancangan dan implementasi komponen backend yang menjadi inti dari layanan analytics.
+
+Gambar 3.2. Rancangan Arsitektur Backend Game Service
+
+Pengembangan Kerangka Arsitektur Game Service Client Unity SDK
+
+Pengembangan kerangka arsitektur Unity SDK melibatkan pembuatan Software Development Kit (SDK) yang memungkinkan game yang dikembangkan di Unity untuk berkomunikasi dengan Backend Game Service. SDK ini menyediakan fungsi-fungsi yang memudahkan integrasi, seperti mengirim data gameplay, menangkap event penting dalam game, dan menerima respon dari server. SDK ini dirancang agar mudah digunakan oleh pengembang Unity, dengan dokumentasi lengkap dan contoh implementasi yang membantu pengembang memahami cara mengintegrasikan layanan backend ke dalam game mereka.
+
+Gambar 3.3. Rancangan Arsitektur Game Service Client Unity SDK
+
+Integrasi Backend Game Service dengan Client Unity SDK
+
+Integrasi ini memastikan bahwa data yang dikumpulkan oleh game dapat dikirim ke Backend Game Service dan diproses dengan benar.
+
+Gambar 3.4. Rancangan Integrasi Backend Game Service dengan Client Unity SDK
+
+Pengembangan Fitur Analytics pada Game Service
+
+Pengembangan fitur analytics melibatkan pembuatan fungsi-fungsi analytics yang dapat digunakan untuk menganalisis data game.
+
+Gambar 3.5. Rancangan Fitur Analytics pada Game Service
+
+Fitur ini mencakup pengumpulan data, pemrosesan data untuk menemukan pola atau anomali, dan visualisasi data yang membantu pengembang game memahami perilaku pemain.
+
+Pengembangan Game Service Frontend Dashboard
+
+Pengembangan Frontend Dashboard melibatkan pembuatan antarmuka pengguna yang memungkinkan pengembang game untuk melihat dan menganalisis data yang dikumpulkan. Dashboard ini menyediakan visualisasi data dalam bentuk grafik, tabel, dan laporan yang mudah dipahami.
+
+Gambar 3.6. Rancangan Game Service Frontend Dashboard
+
+Integrasi Backend Game Service dengan Frontend Dashboard
+
+Integrasi ini memastikan bahwa data analytics yang diproses oleh Backend Game Service dapat ditampilkan di Frontend Dashboard.
+
+Gambar 3.7. Rancangan Integrasi Backent Game Service dengan Frontend Dashboard
+
+Integrasi ini memastikan bahwa data analytics yang diproses oleh Backend Game Service dapat ditampilkan di Frontend Dashboard. Proses ini melibatkan pengaturan API yang memungkinkan dashboard untuk mengambil data dari server secara real-time, pengujian untuk memastikan data ditampilkan dengan benar, dan pengaturan hak akses untuk memastikan hanya pengguna yang berwenang yang dapat melihat data tertentu. Integrasi ini juga mencakup pengoptimalan performa untuk memastikan dashboard dapat menangani volume data yang besar tanpa menurunkan kinerja.
+
+Dokumentasi Pengembangan
+
+Dokumentasi pengembangan penting untuk memastikan bahwa sistem dapat dipelihara dan dikembangkan lebih lanjut oleh pengembang lain. Dokumentasi ini mencakup berbagai aspek, mulai dari panduan penggunaan hingga dokumentasi teknis.
+
+Hands On Documentation
+
+Hands On Documentation menyediakan panduan praktis bagi pengembang untuk mulai menggunakan sistem.
+
+Contributor Documentation
+
+Contributor Documentation memberikan panduan bagi kontributor yang ingin berkontribusi pada pengembangan sistem.
+
+End User Documentation
+
+End User Documentation menyediakan panduan bagi pengguna akhir yang akan menggunakan sistem untuk analitik game.
+
+Pengujian dan Analisa Hasil
+
+Bagian ini menjelaskan metode pengujian yang dilakukan untuk memastikan bahwa sistem berfungsi dengan baik dan memenuhi kebutuhan pengguna. Pengujian dilakukan secara menyeluruh pada backend game service dengan fitur analytics, Client SDK berbasis Unity plugin, dan Client Dashboard berbasis web. Berikut adalah teknis pengujian yang dilakukan:
+
+Pengujian Backend Game Service
+
+Memastikan bahwa backend game service berfungsi dengan baik, dapat menerima dan memproses data dengan benar, serta menyediakan fitur analytics yang sesuai.
+
+Input Data Testing
+
+Mengirim berbagai jenis data dari game client untuk memastikan data diterima dan diproses dengan benar.
+
+API Testing
+
+Menguji setiap endpoint API untuk memastikan respons yang dihasilkan sesuai dengan yang diharapkan.
+
+Analytics Processing Testing
+
+Memastikan bahwa data yang diterima dapat diproses dan dianalisis dengan benar, menghasilkan laporan dan insight yang akurat.
+
+Load Testing
+
+Memastikan bahwa sistem dapat menangani jumlah permintaan yang tinggi tanpa penurunan kinerja.
+
+Pengujian Client SDK Berbasis Unity Plugin
+
+Memastikan bahwa Unity plugin dapat berkomunikasi dengan backend game service dengan benar dan mudah digunakan oleh pengembang game.
+
+Data Transmission Testing
+
+Mengirim data dari Unity plugin ke backend untuk memastikan data diterima dan diproses dengan benar.
+
+Error Handling Testing
+
+Memastikan bahwa plugin dapat menangani error dengan baik dan memberikan pesan kesalahan yang informatif.
+
+Pengujian Client Dashboard Berbasis Web
+
+Memastikan bahwa Client Dashboard dapat menampilkan data analytics dengan benar dan mudah digunakan oleh pengembang game.
+
+Data Visualization Testing
+
+Memastikan bahwa data ditampilkan dalam bentuk grafik dan tabel yang mudah dipahami.
+
+Filter and Sorting Testing
+
+Memastikan bahwa fitur filter dan pengurutan data berfungsi dengan benar.
+
+Dokumentasi Pengujian
+
+Memastikan bahwa dokumentasi yang disediakan memadai untuk pengembang dan pengguna akhir.
+
+Hands-On Testing
+
+Menguji dokumentasi praktis untuk memastikan bahwa pengembang dapat mengikuti panduan dengan mudah.
+
+Contributor Testing
+
+Menguji dokumentasi kontributor untuk memastikan bahwa kontributor dapat memahami dan mengikuti prosedur kontribusi.
+
+End User Testing
+
+Menguji dokumentasi pengguna akhir untuk memastikan bahwa pengguna dapat memahami dan menggunakan layanan dengan mudah.
+
+Analisa Hasil Pengujian
+
+Menganalisis hasil pengujian untuk memastikan bahwa sistem berfungsi dengan baik dan memenuhi kebutuhan pengguna.
+
+Bug Tracking
+
+Mencatat dan menganalisis bug yang ditemukan selama pengujian untuk diperbaiki.
+
+Performance Metrics
+
+Mengukur dan menganalisis performa sistem berdasarkan hasil pengujian performa.
+
+User Feedback Analysis
+
+Mengumpulkan dan menganalisis umpan balik dari pengembang dan pengguna akhir untuk perbaikan lebih lanjut.

@@ -1,0 +1,203 @@
+%
+% Template Laporan Politeknik Elektronika Negeri Surabaya
+%
+% @author  Atqa Munzir
+% @version 1.0.0
+% @edit by
+%  -
+%
+
+
+
+
+%-----------------------------------------------------------------------------%
+% Configuration
+%-----------------------------------------------------------------------------%
+
+% Tipe dokumen adalah report dengan satu kolom.
+%
+\documentclass[10pt, a5paper, onecolumn, twoside, final]{report}
+
+
+% Mengatur agar bagian bawah halaman tidak rata
+%
+\raggedbottom
+
+
+% Load konfigurasi LaTeX
+%
+\usepackage{_internals/pens}
+
+
+% Load settings untuk laporan yang sedang dibuat
+%
+\input{config/settings}
+
+
+% Daftar istilah yang mungkin perlu ditandai
+%
+\input{config/istilah}
+
+
+\begin{document}
+
+
+% Daftar pemenggalan suku kata dan istilah dalam LaTeX
+%
+\include{_internals/hypeindonesia}
+
+
+
+
+%-----------------------------------------------------------------------------%
+% Front
+%-----------------------------------------------------------------------------%
+
+% Sampul
+%
+\include{_internals/sampul}
+\ifodd\thechapterpagecount\forceclearchapter\fi
+
+\pagenumbering{roman}
+
+% Judul Dalam
+%
+\addtocontents{toc}{\protect\addvspace{-10pt}}
+\include{_internals/judulDalam}
+\ifodd\thechapterpagecount\include{_internals/kosong}\fi
+
+\strcompare{Proyek Akhir}{\type} {\setcounter{page}{3}} {}
+
+
+% Lembar Orisinalitas
+%
+\addtocontents{toc}{\protect\addvspace{-10pt}}
+\addChapter{Lembar Orisinalitas}
+\include{src/00-front/pernyataanOrisinalitas}
+\ifodd\thechapterpagecount\include{_internals/kosong}\fi
+
+
+% Lembar Pengesahan
+%
+\addChapter{Lembar Pengesahan}
+\include{src/00-front/pengesahanTA}
+% Lembar Pengesahan dari PDF lain
+%\putpdf{assets/pdfs/pengesahanSidang.pdf}
+\ifodd\thechapterpagecount\include{_internals/kosong}\fi
+
+
+% Kata Pengantar
+%
+\addChapter{Kata Pengantar}
+\include{src/00-front/kataPengantar}
+\ifodd\thechapterpagecount\include{_internals/kosong}\fi
+
+
+% Abstrak
+%
+\addChapter{Abstrak}
+\include{src/00-front/abstrak}
+\include{src/00-front/abstract}
+
+
+% Daftar Isi, Gambar, dan Tabel
+%
+\addDefaultListPage{\tableofcontents}
+\addDefaultListPage{\listoffigures}
+\addDefaultListPage{\listoftables}
+
+
+% Daftar Kode Program
+% Comment to disable.
+%
+\addCustomListPage{\listoflistings}{\lstlistlistingname}
+
+
+% Daftar Equation (Persamaan Matematis)
+% Uncomment to use.
+%
+% \addCustomListPage{\listofequ}{\listofequname}
+
+
+% Daftar Isi yang Didefinisikan Sendiri (Custom)
+% Definisi jenis objek baru dapat dilakukan di pens.sty
+% Uncomment to use.
+%
+% \addCustomListPage{\listofthing}{\listofthingname}
+
+
+% Daftar Lampiran
+% Comment to disable.
+%
+\addCustomListPage{\listofappendix}{\listofappendixname}
+
+
+\noCAPinToC % Revert to original \addcontentsline formatting
+\ifodd\thechapterpagecount\clearpage\else\forceclearchapter\fi
+
+
+% Jika penomoran romawi selesai di ganjil
+%
+%\naiveoddclearchapter
+
+% Jika penomoran romawi selesai di genap
+%
+%\naiveevenclearchapter
+
+
+
+
+%-----------------------------------------------------------------------------%
+% BODY
+%-----------------------------------------------------------------------------%
+
+\pagenumbering{arabic}
+
+\setoddevenheader
+\include{src/01-body/bab1}
+\clearchapter
+\include{src/01-body/bab2}
+\clearchapter
+\include{src/01-body/bab3}
+\clearchapter
+\include{src/01-body/bab4}
+\clearchapter
+\include{src/01-body/bab5}
+\clearchapter
+\include{src/01-body/kesimpulan}
+\clearchapter
+
+
+% Daftar Pustaka
+%
+\CAPinToC
+\include{_internals/pustaka}
+\clearchapter
+\noCAPinToC
+
+
+
+%-----------------------------------------------------------------------------%
+% Back
+%-----------------------------------------------------------------------------%
+
+% Lampiran
+%
+\begin{appendix}
+  \newcounter{pagetemp}
+  \setcounter{pagetemp}{\thepage}
+  \include{_internals/markLampiran}
+  \clearchapter
+  \setcounter{page}{\thepagetemp}
+  \stepcounter{page}
+  \include{src/99-back/lampiran}
+\end{appendix}
+
+
+% Biodata Penulis
+%
+\addChapter{Biodata}
+\include{src/99-back/biodata}
+
+
+\end{document}
